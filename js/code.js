@@ -1,5 +1,5 @@
  var imagesArray = new Array();
- var animals = ["finch", "bullfinch", "sparrow", "cat", "monkey", "dog", "cow"]
+ var animals = ["lion", "finch", "bullfinch", "sparrow", "cat", "monkey", "dog", "cow"]
  
  //  loading images
  for (i=0; i<animals.length; i++) {
@@ -8,7 +8,7 @@
      animal.src='image/'+animals[i]+'.jpg';
      imagesArray[i]=animal;
  };
- 
+
 //  select animal for turn
  function selectAnimal (imagesArray) {
      var randomAnimal = Math.floor((Math.random() * imagesArray.length));
@@ -20,7 +20,7 @@
     var randomNumberArray = new Array();
     randomNumberArray.push(randomAnimal)
     while (randomNumberArray.length<5){
-            var randomNumber = Math.floor((Math.random() * (imagesArray.length-1)));
+            var randomNumber = Math.floor((Math.random() * imagesArray.length));
             if (randomNumberArray.indexOf(randomNumber)<0 && randomNumberArray.indexOf(randomNumber)!=randomAnimal) {
                     randomNumberArray.push(randomNumber);
             }
@@ -34,33 +34,41 @@
      var clickedImage = clicked.getAttribute("style");
      if (clickedImage==selectedAnimal.toString()) {
          points=points+1
-         document.getElementById('counter').value = points
-         startLoop()
+         document.getElementById('counter').value = points;
+         startLoop();
      }
      if (clickedImage!=selectedAnimal.toString()) {
          points--
-         document.getElementById('counter').value = points
+         document.getElementById('counter').value = points;
      }
      //alert(clicked.getAttribute("style"));
-     console.log(points)
+     console.log(points);
  }
  //points=detectClick(true,selectAnimal,points)
+ 
+ function reset() {
+     document.getElementById('counter').value = 0;
+     startLoop();
+ }
 
 //  randomize positions of images
 var placesArray = ["image1","image2", "image3", "image4", "image5"];
 var positions = new Array();
 
-while (positions.length<5) {
-    var randomPosition = Math.floor((Math.random() * placesArray.length));
-    if (positions.indexOf(randomPosition)<0) {
-        positions.push(randomPosition);
-    }
-};
-
-// console.log('pozicije su: ' + positions)
-
 //  draw images
 function drawLoop(drawImages,imagesArray,selectedAnimal) {
+    
+    //  randomize positions of images
+    var placesArray = ["image1","image2", "image3", "image4", "image5"];
+    var positions = new Array();
+
+    while (positions.length<5) {
+        var randomPosition = Math.floor((Math.random() * placesArray.length));
+        if (positions.indexOf(randomPosition)<0) {
+            positions.push(randomPosition);
+        }
+    };
+    
     drawImagesIndex=drawImages(imagesArray,selectedAnimal);
     console.log(drawImagesIndex)
     console.log('zivotinja ' + selectedAnimal)

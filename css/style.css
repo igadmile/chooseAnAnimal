@@ -6,8 +6,16 @@ input {
 }
 
 audio {
-    padding:15px;
+    margin:15px;
 }
 h1 {
     float:left;
 }
+
+button {
+    margin-left:15px;
+}
+
+/*img {
+    opacity:0;
+}*/
