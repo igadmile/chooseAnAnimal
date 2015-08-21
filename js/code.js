@@ -19,7 +19,7 @@
  function drawImages(imagesArray, randomAnimal) {
     var randomNumberArray = new Array();
     randomNumberArray.push(randomAnimal)
-    while (randomNumberArray.length<5){
+    while (randomNumberArray.length<6){
             var randomNumber = Math.floor((Math.random() * imagesArray.length));
             if (randomNumberArray.indexOf(randomNumber)<0 && randomNumberArray.indexOf(randomNumber)!=randomAnimal) {
                     randomNumberArray.push(randomNumber);
@@ -52,17 +52,17 @@
  }
 
 //  randomize positions of images
-var placesArray = ["image1","image2", "image3", "image4", "image5"];
-var positions = new Array();
+// var placesArray = ["image1","image2", "image3", "image4", "image5"];
+// var positions = new Array();
 
 //  draw images
 function drawLoop(drawImages,imagesArray,selectedAnimal) {
     
     //  randomize positions of images
-    var placesArray = ["image1","image2", "image3", "image4", "image5"];
+    var placesArray = ["image1","image2", "image3", "image4", "image5", "image6"];
     var positions = new Array();
 
-    while (positions.length<5) {
+    while (positions.length<6) {
         var randomPosition = Math.floor((Math.random() * placesArray.length));
         if (positions.indexOf(randomPosition)<0) {
             positions.push(randomPosition);
@@ -81,7 +81,7 @@ function drawLoop(drawImages,imagesArray,selectedAnimal) {
   
     //console.log('audio/'+animals[selectedAnimal]+'.mp3')
 
-    for (i=0; i<5; i++) {
+    for (i=0; i<6; i++) {
         imageNum=placesArray[positions[i]];
         console.log(imageNum)
         document.getElementById(imageNum).appendChild(imagesArray[drawImagesIndex[i]]);

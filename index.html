@@ -11,23 +11,27 @@
     <body>
         <div class="container">
             <div class="row col-xs-12">
-                <div class="col-xs-8">
-                </div>
                 <div class="col-xs-4">
                     <h1>bodovi:</h1>
                     <h1><input type="text" id="counter" value="0"/></h1>
                 </div>
+                <div class="col-xs-8">
+                </div>
             </div>
-            <div class="row col-md-12">
-                <div onClick="detectClick(this,selectedAnimal)" id="image1" class="col-md-2">
+            <div class="row col-md-12" style="margin-bottom:15px;">
+                <div onClick="detectClick(this,selectedAnimal)" id="image1" class="col-xs-4">
                 </div>
-                <div onClick="detectClick(this,selectedAnimal)" id="image2" class="col-md-2">
+                <div onClick="detectClick(this,selectedAnimal)" id="image2" class="col-xs-4">
                 </div>
-                <div onClick="detectClick(this,selectedAnimal)" id="image3" class="col-md-2">
+                <div onClick="detectClick(this,selectedAnimal)" id="image3" class="col-xs-4">
                 </div>
-                <div onClick="detectClick(this,selectedAnimal)" id="image4" class="col-md-2">
+            </div>
+            <div class="spaceing row col-md-12" style="margin-top:15px;">
+                <div onClick="detectClick(this,selectedAnimal)" id="image4" class="col-xs-4">
                 </div>
-                <div onClick="detectClick(this,selectedAnimal)" id="image5" class="col-md-2">
+                <div onClick="detectClick(this,selectedAnimal)" id="image5" class="col-xs-4">
+                </div>
+                <div onClick="detectClick(this,selectedAnimal)" id="image6" class="col-xs-4">
                 </div>
             </div>
             <div class="row">
@@ -36,9 +40,9 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                        <button class="btn btn-primary" type="submit" onclick="reset()">
-                        Ponovno pokreni igru
-                        </button>
+                    <button class="btn btn-primary" type="submit" onclick="reset()">
+                    Ponovno pokreni igru
+                    </button>
                 </div>
             </div>
         </div>
