@@ -1,1 +1,13 @@
- 
+input {
+    width: 50px;
+    text-align:center;
+    border:none;
+    float: left;
+}
+
+audio {
+    padding:15px;
+}
+h1 {
+    float:left;
+}
