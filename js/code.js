@@ -1,12 +1,10 @@
-//  var imagesArray = new Array();
- var animals = ["lion", "finch", "bullfinch", "sparrow", "cat", "chimp", "dog", "cow", "goat", "sheep"]
-
 //  select animal for turn
  function selectAnimal (animals) {
      var randomAnimal = Math.floor((Math.random() * animals.length));
      return randomAnimal
  };
  
+ // detect clicks and add or substract points depending on the image clicked
  function detectClick(clicked, selectedAnimal) {
      var points = parseInt(document.getElementById('counter').value, 10);
      points = isNaN(points) ? 0 : points;
@@ -44,7 +42,6 @@
     //  randomize positions of images
     var placesArray = ["image1","image2", "image3", "image4", "image5", "image6"];
     var positions = new Array();
-
     while (positions.length<6) {
         var randomPosition = Math.floor((Math.random() * placesArray.length));
         if (positions.indexOf(randomPosition)<0) {
@@ -56,13 +53,13 @@
 	var randomNumberArray = new Array();
     randomNumberArray.push(selectedAnimal)
     while (randomNumberArray.length<6){
-            var randomNumber = Math.floor((Math.random() * imagesArray.length));
-            if (randomNumberArray.indexOf(randomNumber)<0 && randomNumberArray.indexOf(randomNumber)!=selectedAnimal) {
-                    randomNumberArray.push(randomNumber);
-            }
+		var randomNumber = Math.floor((Math.random() * imagesArray.length));
+		if (randomNumberArray.indexOf(randomNumber)<0 && randomNumberArray.indexOf(randomNumber)!=selectedAnimal) {
+			randomNumberArray.push(randomNumber);
+		}
     }
 
-//     console.log(drawImagesIndex)
+    //console.log(drawImagesIndex)
     console.log('zivotinja ' + selectedAnimal)
     
     // load audio
@@ -70,7 +67,6 @@
     animalAudio.setAttribute('src','audio/'+animals[selectedAnimal]+'.mp3');
     animalAudio.setAttribute("controls", "controls");
     document.getElementById("audio1").appendChild(animalAudio);
-  
     //console.log('audio/'+animals[selectedAnimal]+'.mp3')
 
     for (i=0; i<6; i++) {
@@ -96,6 +92,12 @@ function startLoop(){
     return selectedAnimal
     counter++
 }
+
+if (animalsDummy==undefined) {
+	var animalsDummy=["lion", "finch", "bullfinch", "sparrow", "cat", "chimp", "dog", "cow", "goat", "sheep"];
+};
+var animals = animalsDummy;
+
 
 // variable storing index of selected animal
 var selectedAnimal = selectAnimal(animals);
