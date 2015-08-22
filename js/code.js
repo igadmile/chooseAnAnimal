@@ -15,19 +15,6 @@
      return randomAnimal
  };
  
-//  make array with random position of image indexes
- function drawImages(imagesArray, randomAnimal) {
-    var randomNumberArray = new Array();
-    randomNumberArray.push(randomAnimal)
-    while (randomNumberArray.length<6){
-            var randomNumber = Math.floor((Math.random() * imagesArray.length));
-            if (randomNumberArray.indexOf(randomNumber)<0 && randomNumberArray.indexOf(randomNumber)!=randomAnimal) {
-                    randomNumberArray.push(randomNumber);
-            }
-    }
-    return randomNumberArray;
-}; 
- 
  function detectClick(clicked, selectedAnimal) {
      var points = parseInt(document.getElementById('counter').value, 10);
      points = isNaN(points) ? 0 : points;
@@ -51,7 +38,7 @@
  }
 
 //  draw images
-function drawLoop(drawImages,imagesArray,selectedAnimal) {
+ function drawLoop(imagesArray,selectedAnimal) {
     
     //  randomize positions of images
     var placesArray = ["image1","image2", "image3", "image4", "image5", "image6"];
@@ -64,8 +51,17 @@ function drawLoop(drawImages,imagesArray,selectedAnimal) {
         }
     };
     
-    drawImagesIndex=drawImages(imagesArray,selectedAnimal);
-    console.log(drawImagesIndex)
+    //  make array with random position of image indexes
+	var randomNumberArray = new Array();
+    randomNumberArray.push(selectedAnimal)
+    while (randomNumberArray.length<6){
+            var randomNumber = Math.floor((Math.random() * imagesArray.length));
+            if (randomNumberArray.indexOf(randomNumber)<0 && randomNumberArray.indexOf(randomNumber)!=selectedAnimal) {
+                    randomNumberArray.push(randomNumber);
+            }
+    }
+
+//     console.log(drawImagesIndex)
     console.log('zivotinja ' + selectedAnimal)
     
     // load audio
@@ -79,8 +75,8 @@ function drawLoop(drawImages,imagesArray,selectedAnimal) {
     for (i=0; i<6; i++) {
         imageNum=placesArray[positions[i]];
         console.log(imageNum)
-        document.getElementById(imageNum).appendChild(imagesArray[drawImagesIndex[i]]);
-        document.getElementById(imageNum).setAttribute("style", drawImagesIndex[i]);
+        document.getElementById(imageNum).appendChild(imagesArray[randomNumberArray[i]]);
+        document.getElementById(imageNum).setAttribute("style", randomNumberArray[i]);
         //console.log("ovo su style pozicije "+drawImagesIndex.indexOf(i))
     }
 };
@@ -95,11 +91,11 @@ function startLoop(){
         audio[index].parentNode.removeChild(audio[index]);
     }
     selectedAnimal = selectAnimal(imagesArray);
-    drawLoop(drawImages,imagesArray, selectedAnimal);
+    drawLoop(imagesArray, selectedAnimal);
     return selectedAnimal
     counter++
 }
 
 // variable storing index of selected animal
 var selectedAnimal = selectAnimal(imagesArray);
-drawLoop(drawImages,imagesArray, selectedAnimal);
+drawLoop(imagesArray, selectedAnimal);
