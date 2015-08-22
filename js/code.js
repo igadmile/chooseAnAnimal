@@ -1,13 +1,5 @@
- var imagesArray = new Array();
+//  var imagesArray = new Array();
  var animals = ["lion", "finch", "bullfinch", "sparrow", "cat", "chimp", "dog", "cow", "goat", "sheep"]
- 
- //  loading images
- for (i=0; i<animals.length; i++) {
-     var animal = animals[i]
-     var animal = document.createElement("img");
-     animal.src='image/'+animals[i]+'.jpg';
-     imagesArray[i]=animal;
- };
 
 //  select animal for turn
  function selectAnimal (animals) {
@@ -38,7 +30,16 @@
  }
 
 //  draw images
- function drawLoop(imagesArray,selectedAnimal) {
+ function drawLoop(selectedAnimal) {
+	 
+	 //  loading images
+	 var imagesArray = new Array();
+	for (i=0; i<animals.length; i++) {
+		var animal = animals[i]
+		var animal = document.createElement("img");
+		animal.src='image/'+animals[i]+'.jpg';
+		imagesArray[i]=animal;
+	};
     
     //  randomize positions of images
     var placesArray = ["image1","image2", "image3", "image4", "image5", "image6"];
@@ -90,12 +91,12 @@ function startLoop(){
     for (index = audio.length - 1; index >= 0; index--) {
         audio[index].parentNode.removeChild(audio[index]);
     }
-    selectedAnimal = selectAnimal(imagesArray);
-    drawLoop(imagesArray, selectedAnimal);
+    selectedAnimal = selectAnimal(animals);
+    drawLoop(selectedAnimal);
     return selectedAnimal
     counter++
 }
 
 // variable storing index of selected animal
-var selectedAnimal = selectAnimal(imagesArray);
-drawLoop(imagesArray, selectedAnimal);
+var selectedAnimal = selectAnimal(animals);
+drawLoop(selectedAnimal);
