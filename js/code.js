@@ -10,8 +10,8 @@
  };
 
 //  select animal for turn
- function selectAnimal (imagesArray) {
-     var randomAnimal = Math.floor((Math.random() * imagesArray.length));
+ function selectAnimal (animals) {
+     var randomAnimal = Math.floor((Math.random() * animals.length));
      return randomAnimal
  };
  
