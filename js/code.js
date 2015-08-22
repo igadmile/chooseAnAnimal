@@ -1,5 +1,5 @@
  var imagesArray = new Array();
- var animals = ["lion", "finch", "bullfinch", "sparrow", "cat", "monkey", "dog", "cow"]
+ var animals = ["lion", "finch", "bullfinch", "sparrow", "cat", "chimp", "dog", "cow", "goat", "sheep"]
  
  //  loading images
  for (i=0; i<animals.length; i++) {
@@ -44,16 +44,11 @@
      //alert(clicked.getAttribute("style"));
      console.log(points);
  }
- //points=detectClick(true,selectAnimal,points)
  
  function reset() {
      document.getElementById('counter').value = 0;
      startLoop();
  }
-
-//  randomize positions of images
-// var placesArray = ["image1","image2", "image3", "image4", "image5"];
-// var positions = new Array();
 
 //  draw images
 function drawLoop(drawImages,imagesArray,selectedAnimal) {
