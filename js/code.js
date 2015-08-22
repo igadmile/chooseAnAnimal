@@ -1,7 +1,8 @@
 //  select animal for turn
- function selectAnimal (animals) {
-     var randomAnimal = Math.floor((Math.random() * animals.length));
-     return randomAnimal
+ function selectAnimal () {
+	var animals=["lion", "finch", "bullfinch", "sparrow", "cat", "chimp", "dog", "cow", "goat", "sheep", "wolf", "bear", "duck"];
+	var randomAnimal = Math.floor((Math.random() * animals.length));
+	return [randomAnimal, animals]
  };
  
  // detect clicks and add or substract points depending on the image clicked
@@ -20,15 +21,14 @@
      }
      //alert(clicked.getAttribute("style"));
      console.log(points);
- }
- 
+ } 
  function reset() {
      document.getElementById('counter').value = 0;
      startLoop();
  }
 
 //  draw images
- function drawLoop(selectedAnimal) {
+ function drawLoop(selectedAnimal,animals) {
 	 
 	 //  loading images
 	 var imagesArray = new Array();
@@ -65,6 +65,7 @@
     // load audio
     var animalAudio = document.createElement("audio");
     animalAudio.setAttribute('src','audio/'+animals[selectedAnimal]+'.mp3');
+	animalAudio.autoplay = true;
     animalAudio.setAttribute("controls", "controls");
     document.getElementById("audio1").appendChild(animalAudio);
     //console.log('audio/'+animals[selectedAnimal]+'.mp3')
@@ -87,18 +88,12 @@ function startLoop(){
     for (index = audio.length - 1; index >= 0; index--) {
         audio[index].parentNode.removeChild(audio[index]);
     }
-    selectedAnimal = selectAnimal(animals);
-    drawLoop(selectedAnimal);
-    return selectedAnimal
+    selectedAnimal = selectAnimal();
+    drawLoop(selectedAnimal[0],selectedAnimal[1]);
+    return selectedAnimal[0]
     counter++
 }
 
-if (animalsDummy==undefined) {
-	var animalsDummy=["lion", "finch", "bullfinch", "sparrow", "cat", "chimp", "dog", "cow", "goat", "sheep"];
-};
-var animals = animalsDummy;
-
-
 // variable storing index of selected animal
-var selectedAnimal = selectAnimal(animals);
-drawLoop(selectedAnimal);
+var selectedAnimal = selectAnimal();
+drawLoop(selectedAnimal[0],selectedAnimal[1]);
