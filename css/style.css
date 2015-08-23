@@ -24,4 +24,5 @@ img {
     height:241px;
 	width:340px;
  	opacity:0; 
+	cursor: pointer;
 }

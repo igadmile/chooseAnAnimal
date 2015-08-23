@@ -1,17 +1,38 @@
 $(document).ready(function(){
 	
 	// variable storing index of selected animal
+	var animalsObject=[];
+	var count = 0;
 	var selectedAnimal = selectAnimal();
+	
 	drawLoop(selectedAnimal[0],selectedAnimal[1]);
 	
 	function selectAnimal () {
-	var animals=["lion", "finch", "bullfinch", "sparrow", "cat", "chimp", "dog", "cow", "goat", "sheep", "wolf", "bear", "duck"];
-	var randomAnimal = Math.floor((Math.random() * animals.length));
-	return [randomAnimal, animals]
+		var animalsInside=["lion", "finch", "bullfinch", "sparrow", "cat", "chimp", "dog", "cow", "goat", "sheep", "wolf", "bear", "duck"];
+		// function for making difference between two arrays. Removes duplicate values
+		Array.prototype.diff = function(a) {
+		return this.filter(function(i) {return a.indexOf(i) < 0;});
+		};
+		
+		// for first run assign animalsInside to animalsObject 
+		animalsObject[0]=animalsInside;
+		
+		// get random number 
+		var randomAnimal = Math.floor((Math.random() * animalsObject[count].length));
+		
+		// store value of animalsObject for Making diff and returning
+		var animalsMemory = animalsObject[count];
+		
+		// pick animal to exclude and make diff with animalsObject
+		var toRemove = animalsMemory[randomAnimal];
+		// make a dif and set array for animalsObject count+1
+		animalsObject[(count+1)]=animalsMemory.diff(toRemove)
+		console.log(animalsObject)
+		count++
+		return [randomAnimal, animalsMemory]
 	};
 
 	function drawLoop(selectedAnimal,animals) {
-	 
 	 //  loading images
 	var imagesArray = new Array();
 		for (i=0; i<animals.length; i++) {
@@ -38,9 +59,6 @@ $(document).ready(function(){
 				randomNumberArray.push(randomNumber);
 			}
 		}
-
-		//console.log(drawImagesIndex)
-		console.log('zivotinja ' + selectedAnimal)
 		
 		// load audio
 		var animalAudio = "<audio src='audio/"+animals[selectedAnimal]+".mp3' autoplay controls='controls'></audio>"
@@ -53,8 +71,6 @@ $(document).ready(function(){
 
 			$('img').fadeTo(400, 1)
 		}
-		
-		$
 		
 		// detect click and see if clicked image style corresponds with selectedAnimal
 		// if so add points, else substract
@@ -74,15 +90,14 @@ $(document).ready(function(){
 		})
 	}
 	
+	// delete images and audio and start loop again
 	function startLoop(){
-		
 		$('img').fadeTo(400, 0)
 		$('img').remove();
 		$('audio').remove();
 		selectedAnimal = selectAnimal();
 		drawLoop(selectedAnimal[0],selectedAnimal[1]);
 		return selectedAnimal[0]
-		counter++
 	}
 	
 	// reset if button reset clicked
