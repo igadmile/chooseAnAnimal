@@ -4,11 +4,13 @@ $(document).ready(function(){
     var animalsObject=[];
     var count = 0;
     var selectedAnimal = selectAnimal();
+    var points = 0;
+    var turn = 0;
     
     drawLoop(selectedAnimal[0],selectedAnimal[1]);
     
     function selectAnimal () {
-        var animalsInside=["lion", "finch", "bullfinch", "sparrow", "cat", "chimp", "dog", "cow", "goat", "sheep", "wolf", "bear", "duck", "goose", "fox"];
+        var animalsInside=["lion", "finch", "bullfinch", "sparrow", "cat", "chimp", "dog", "cow", "goat", "sheep", "wolf", "bear", "duck", "goose", "fox", "chicken", "roedeer"];
         
         // function for making difference between two arrays. Removes duplicate values
         Array.prototype.diff = function(a) {
@@ -75,18 +77,17 @@ $(document).ready(function(){
         
         // detect click and see if clicked image style corresponds with selectedAnimal
         // if so add points, else substract
+        turn++
         $('img').click(function(){
-            var points = parseInt($('input').val());
-            points = isNaN(points) ? 0 : points;
             var broj=$(this).parent().attr('style');
             if (broj==selectedAnimal) {
                 points++;
-                $('input').val(points);
+                $('#points').text(points);
                 startLoop();
             };
             if (broj!=selectedAnimal) {
                 points--;
-                $('input').val(points);
+                $('#points').text(points);
             };
         });
     }
@@ -96,14 +97,32 @@ $(document).ready(function(){
         $('img').fadeTo(400, 0);
         $('img').remove();
         $('audio').remove();
-        selectedAnimal = selectAnimal();
-        drawLoop(selectedAnimal[0],selectedAnimal[1]);
-        return selectedAnimal[0]
+        
+        // when modalButton clicket reload page
+        $('#modalButton').click(function(){
+            $('#modalDialogue').modal('hide');
+            location.reload();
+        });
+        
+        // if points reach certain value, show modal and hide content on page
+        if(turn==10){
+            $('.modal-body').text('Broj bodova je: '+ points);
+            $('#modalDialogue').modal('show');
+            $('h1, #resetButton').remove();
+        }
+        else {
+            selectedAnimal = selectAnimal();
+            drawLoop(selectedAnimal[0],selectedAnimal[1]);
+            return selectedAnimal[0]
+        }
     }
     
     // reset if button reset clicked
     $('button').click(function(){
-        $('#counter').val(0);
-        startLoop();
+//         $('#points').text('0');
+//         var animalsObject=[];
+//         var count = 0;
+//         startLoop();
+        location.reload();
     })
 });
