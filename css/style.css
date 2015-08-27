@@ -1,3 +1,8 @@
+body {
+    background-color:#6d5c42;
+    color:#ebad1a;
+}
+
 input {
     width: 50px;
     text-align:center;
@@ -20,9 +25,152 @@ button {
     margin-top:-50px;
 }
 
-img {
-    height:100%;
-    width:100%;
+.row2 {
+    margin-left:127px;
+    margin-top:-70px;
+}
+
+.row3 {
+    margin-top:-70px;
+}
+
+.hexImg {
     opacity:0; 
     cursor: pointer;
+}
+
+.gameTitle {
+    position:absolute;
+    top:90px;
+    left:40px;
+    text-align:center;
+    font-size:2.9em;
+    -webkit-transform:  rotate(30deg);
+    -ms-transform:      rotate(30deg);
+    transform:          rotate(30deg);
+    z-index:3;
+}
+
+#points {
+    z-index:2;
+    font-size:9em;
+    position:absolute;
+    z-index:3;
+    top:69px;
+    left: 102.5px;
+}
+
+.col-xs-12, .col-xs-3 {
+    padding:0px !important;
+}
+    
+.hexagon {
+  position: relative;
+  width: 275px; 
+  height: 158.77px;
+  margin: 79.39px 0;
+  background-color: #7cbea2;
+  background-size: auto 317.5426px;
+  background-position: center;
+  box-shadow: 0 0 10px rgba(0,0,0,1);
+  z-index: 1;
+}
+
+.hexTop,
+.hexBottom {
+  position: absolute;
+  z-index: -1;
+  width: 194.45px;
+  height: 194.45px;
+  overflow: hidden;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background: inherit;
+  left: 40.27px;
+  box-shadow: 0 0 10px rgba(0,0,0,1);
+  backface-visibility: hidden;
+}
+
+/*counter transform the bg image on the caps*/
+.hexTop:after,
+.hexBottom:after {
+  content: "";
+  position: absolute;
+  width: 275.0000px;
+  height: 158.7713240271471px;
+  -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-79.3857px);
+  -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-79.3857px);
+  transform:          rotate(45deg) scaleY(1.7321) translateY(-79.3857px);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  background: inherit;
+}
+
+.hexTop {
+  top: -97.2272px;
+}
+
+.hexTop:after {
+  background-position: center top;
+}
+
+.hexBottom {
+  bottom: -97.2272px;
+}
+
+.hexBottom:after {
+  background-position: center bottom;
+}
+
+.hexagon:after {
+  content:'';
+  position: absolute;
+  top: 0.0000px;
+  left: 0;
+  width: 275.0000px;
+  height: 158.7713px;
+  z-index: 2;
+  background: inherit;
+}
+
+/* hexagon red */
+.hexagonRed {
+  position: absolute;
+  width: 230px; 
+  height: 132.79px;
+  background-color: #eaddcc;
+  margin: 66.40px 0;
+  border-left: solid 6px #c74629;
+  border-right: solid 6px #c74629;
+  z-index:2;
+  top:24px;
+  left:23px;
+}
+
+.hexagonRed:before,
+.hexagonRed:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 162.63px;
+  height: 162.63px;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background-color: inherit;
+  left: 27.6827px;
+}
+
+.hexagonRed:before {
+  top: -81.3173px;
+  border-top: solid 8.4853px #c74629;
+  border-right: solid 8.4853px #c74629;
+}
+
+.hexagonRed:after {
+  bottom: -81.3173px;
+  border-bottom: solid 8.4853px #c74629;
+  border-left: solid 8.4853px #c74629;
 }

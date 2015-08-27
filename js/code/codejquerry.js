@@ -40,7 +40,7 @@ $(document).ready(function(){
         //  loading images
         var imagesArray = new Array();
         for (i=0; i<animals.length; i++) {
-            var animal = "<img src='image/"+animals[i]+".jpg'>"
+            var animal = "<div class='hexagon hexImg' style='background-image:url(image/"+animals[i]+".jpg')><div class='hexTop'></div><div class='hexBottom'></div>"
             imagesArray[i]=animal;
         };
         
@@ -65,21 +65,29 @@ $(document).ready(function(){
         };
         
         // load audio
-        var animalAudio = "<audio src='audio/"+animals[selectedAnimal]+".mp3' autoplay controls='controls'></audio>";
+        var animalAudio = "<audio src='audio/"+animals[selectedAnimal]+".mp3' autoplay></audio>";
         $('#audio').append(animalAudio);
         //console.log('audio/'+animals[selectedAnimal]+'.mp3')
-
+        
+        $('#replay').click(function() {
+//             $( '#audio').empty();
+//             $('#audio').append(animalAudio);
+            $( '#audio').children().replaceWith(animalAudio);
+//             $('#audio').append(animalAudio);
+        });
+        
         for (i=0; i<6; i++) {
             imageNum=placesArray[positions[i]];
-            $('#'+imageNum).append(imagesArray[randomNumberArray[i]]).attr('style', randomNumberArray[i]);
-            $('img').fadeTo(400, 1);
+            $('#'+imageNum).append(imagesArray[randomNumberArray[i]]).attr('title',randomNumberArray[i]);
+            $('.hexImg').fadeTo(400, 1);
         };
-        
-        // detect click and see if clicked image style corresponds with selectedAnimal
+
+        // detect click and see if clicked image title corresponds with selectedAnimal
         // if so add points, else substract
         turn++
-        $('img').click(function(){
-            var broj=$(this).parent().attr('style');
+        $('.hexImg').click(function(){
+            var broj=$(this).parent().attr('title');
+            console.log('kliknuto '+broj+'selected '+selectedAnimal)
             if (broj==selectedAnimal) {
                 points++;
                 $('#points').text(points);
@@ -94,8 +102,8 @@ $(document).ready(function(){
     
     // delete images and audio and start loop again
     function startLoop(){
-        $('img').fadeTo(400, 0);
-        $('img').remove();
+        $('.hexImg').fadeTo(400, 0);
+        $('.hexImg').remove();
         $('audio').remove();
         
         // when modalButton clicket reload page
@@ -118,7 +126,7 @@ $(document).ready(function(){
     }
     
     // reset if button reset clicked
-    $('button').click(function(){
+    $('#reload').click(function(){
 //         $('#points').text('0');
 //         var animalsObject=[];
 //         var count = 0;
