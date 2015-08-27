@@ -67,19 +67,14 @@ $(document).ready(function(){
         // load audio
         var animalAudio = "<audio src='audio/"+animals[selectedAnimal]+".mp3' autoplay></audio>";
         $('#audio').append(animalAudio);
-        //console.log('audio/'+animals[selectedAnimal]+'.mp3')
         
         $('#replay').click(function() {
-//             $( '#audio').empty();
-//             $('#audio').append(animalAudio);
             $( '#audio').children().replaceWith(animalAudio);
-//             $('#audio').append(animalAudio);
         });
         
         for (i=0; i<6; i++) {
             imageNum=placesArray[positions[i]];
             $('#'+imageNum).append(imagesArray[randomNumberArray[i]]).attr('title',randomNumberArray[i]);
-            $('.hexImg').fadeTo(400, 1);
         };
 
         // detect click and see if clicked image title corresponds with selectedAnimal
@@ -102,7 +97,6 @@ $(document).ready(function(){
     
     // delete images and audio and start loop again
     function startLoop(){
-        $('.hexImg').fadeTo(400, 0);
         $('.hexImg').remove();
         $('audio').remove();
         
@@ -116,7 +110,7 @@ $(document).ready(function(){
         if(turn==10){
             $('.modal-body').text('Broj bodova je: '+ points);
             $('#modalDialogue').modal('show');
-            $('h1, #resetButton').remove();
+            $('.col-xs-12').remove();
         }
         else {
             selectedAnimal = selectAnimal();
@@ -127,10 +121,13 @@ $(document).ready(function(){
     
     // reset if button reset clicked
     $('#reload').click(function(){
-//         $('#points').text('0');
-//         var animalsObject=[];
-//         var count = 0;
-//         startLoop();
         location.reload();
     })
+	
+    // set #points to right position
+	var pointsHeight = $('#points').height();
+	var pointsWidth = $('#points').width();
+	var pointsTop = (318/2)-(pointsHeight/2);
+	var pointsLeft = (285/2)-(pointsWidth/2);
+	$('#points').css({top:pointsTop, left:pointsLeft})
 });
