@@ -3,27 +3,21 @@ body {
     color:#ebad1a;
 }
 
-input {
-    width: 50px;
-    text-align:center;
-    border:none;
-    float: left;
+html, body {
+	height: 100%;
 }
 
-audio {
-    margin:15px;
-}
-h1 {
-    float:left;
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }
 
-button {
-    margin-left:15px;
-}
-
-.spaceing {
-    margin-top:-50px;
-}
+.container {
+	vertical-align: middle;
+} 
 
 .row2 {
     margin-left:127px;
@@ -39,12 +33,12 @@ button {
 }
 
 .btn {
-	background-color:#c74629;
+	background-color:#7cbea2;
 	border:none;
 }
 
-.btn:hover {
-	background-color:#7cbea2;
+.btn:hover, .btn:active, .btn:focus,.btn-primary:focus, .btn-primary:active, {
+	background-color:#c74629;
 }
 
 .hexImg {
@@ -125,16 +119,18 @@ button {
   height: 158.77px;
   margin: 79.39px 0;
   background-color: #7cbea2;
-  background-size: auto 317.5426px;
+  background-size: auto 315.2332px;
   background-position: center;
   box-shadow: 0 0 10px rgba(0,0,0,1);
   z-index: 1;
+  border-left: solid 1px #ffffff;
+  border-right: solid 1px #ffffff;
 }
 
 .hexTop,
 .hexBottom {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   width: 194.45px;
   height: 194.45px;
   overflow: hidden;
@@ -142,9 +138,8 @@ button {
   -ms-transform: scaleY(0.5774) rotate(-45deg);
   transform: scaleY(0.5774) rotate(-45deg);
   background: inherit;
-  left: 40.27px;
-  box-shadow: 0 0 10px rgba(0,0,0,1);
-  backface-visibility: hidden;
+  left: 39.27px;
+  box-shadow: 0 0 20px rgba(0,0,0,1);
 }
 
 /*counter transform the bg image on the caps*/
@@ -152,11 +147,11 @@ button {
 .hexBottom:after {
   content: "";
   position: absolute;
-  width: 275.0000px;
-  height: 158.7713240271471px;
-  -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-79.3857px);
-  -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-79.3857px);
-  transform:          rotate(45deg) scaleY(1.7321) translateY(-79.3857px);
+  width: 273.0000px;
+  height: 157.61662348876786px;
+  -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-78.8083px);
+  -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-78.8083px);
+  transform:          rotate(45deg) scaleY(1.7321) translateY(-78.8083px);
   -webkit-transform-origin: 0 0;
   -ms-transform-origin: 0 0;
   transform-origin: 0 0;
@@ -165,27 +160,33 @@ button {
 
 .hexTop {
   top: -97.2272px;
+  border-top: solid 1.4142px #ffffff;
+  border-right: solid 1.4142px #ffffff;
 }
 
 .hexTop:after {
+	-webkit-backface-visibility: hidden;
   background-position: center top;
 }
 
 .hexBottom {
   bottom: -97.2272px;
+  border-bottom: solid 1.4142px #ffffff;
+  border-left: solid 1.4142px #ffffff;
 }
 
 .hexBottom:after {
+	-webkit-backface-visibility: hidden;
   background-position: center bottom;
 }
 
 .hexagon:after {
   content:'';
   position: absolute;
-  top: 0.0000px;
+  top: 0.5774px;
   left: 0;
-  width: 275.0000px;
-  height: 158.7713px;
+  width: 273.0000px;
+  height: 157.6166px;
   z-index: 2;
   background: inherit;
 }
