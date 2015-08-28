@@ -68,7 +68,7 @@ $(document).ready(function(){
         var animalAudio = "<audio src='audio/"+animals[selectedAnimal]+".mp3' autoplay></audio>";
         $('#audio').append(animalAudio);
         
-        $('#replay').click(function() {
+        $('.playIcon').click(function() {
             $( '#audio').children().replaceWith(animalAudio);
         });
         
@@ -120,7 +120,7 @@ $(document).ready(function(){
     }
     
     // reset if button reset clicked
-    $('#reload').click(function(){
+    $('.restartIcon').click(function(){
         location.reload();
     })
 	

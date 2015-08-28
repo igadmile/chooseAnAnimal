@@ -1,6 +1,10 @@
 body {
-    background-color:#6d5c42;
-    color:#ebad1a;
+    background: url(../image/background/background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color:#fff;
 }
 
 html, body {
@@ -93,20 +97,50 @@ html, body {
 .gameTitle {
     position:absolute;
     top:90px;
-    left:40px;
+    left:35px;
     text-align:center;
     font-size:2.9em;
-    -webkit-transform:  rotate(30deg);
+/*    -webkit-transform:  rotate(30deg);
     -ms-transform:      rotate(30deg);
-    transform:          rotate(30deg);
+    transform:          rotate(30deg);*/
     z-index:3;
 }
 
 #points {
     z-index:2;
-    font-size:9em;
+    font-size:12em;
     position:absolute;
     z-index:3;
+}
+
+.restartIcon {
+    position: absolute;
+    top: 73px;
+    left:62px;
+    height: 53%;
+    width: 53%;
+    z-index:4;
+}
+
+.playIcon{
+    position: absolute;
+    top: 73px;
+    left:62px;
+    height: 53%;
+    width: 53%;
+    z-index:4;
+}
+
+.hexagonBorder {
+    position: absolute;
+     -webkit-transform:  rotate(30deg);
+    -ms-transform:      rotate(30deg);
+    transform:          rotate(30deg);
+    top: 6px;
+    left:3px;
+    height: 95%;
+    width: 95%;
+    z-index:4;
 }
 
 .col-xs-12, .col-xs-3 {
@@ -114,17 +148,16 @@ html, body {
 }
     
 .hexagon {
-  position: relative;
+ position: relative;
   width: 275px; 
   height: 158.77px;
   margin: 79.39px 0;
-  background-color: #7cbea2;
-  background-size: auto 315.2332px;
+  background-color: #81bba3;
+   background-size: auto 312.9238px;
   background-position: center;
   box-shadow: 0 0 10px rgba(0,0,0,1);
-  z-index: 1;
-  border-left: solid 1px #ffffff;
-  border-right: solid 1px #ffffff;
+  border-left: solid 2px #ffffff;
+  border-right: solid 2px #ffffff;
 }
 
 .hexTop,
@@ -138,8 +171,8 @@ html, body {
   -ms-transform: scaleY(0.5774) rotate(-45deg);
   transform: scaleY(0.5774) rotate(-45deg);
   background: inherit;
-  left: 39.27px;
-  box-shadow: 0 0 20px rgba(0,0,0,1);
+  left: 38.27px;
+  box-shadow: 0 0 10px rgba(0,0,0,1);
 }
 
 /*counter transform the bg image on the caps*/
@@ -147,11 +180,11 @@ html, body {
 .hexBottom:after {
   content: "";
   position: absolute;
-  width: 273.0000px;
-  height: 157.61662348876786px;
-  -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-78.8083px);
-  -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-78.8083px);
-  transform:          rotate(45deg) scaleY(1.7321) translateY(-78.8083px);
+  width: 271.0000px;
+  height: 156.4619229503886px;
+  -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-78.2310px);
+  -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-78.2310px);
+  transform:          rotate(45deg) scaleY(1.7321) translateY(-78.2310px);
   -webkit-transform-origin: 0 0;
   -ms-transform-origin: 0 0;
   transform-origin: 0 0;
@@ -160,8 +193,8 @@ html, body {
 
 .hexTop {
   top: -97.2272px;
-  border-top: solid 1.4142px #ffffff;
-  border-right: solid 1.4142px #ffffff;
+  border-top: solid 2.8284px #ffffff;
+  border-right: solid 2.8284px #ffffff;
 }
 
 .hexTop:after {
@@ -171,8 +204,8 @@ html, body {
 
 .hexBottom {
   bottom: -97.2272px;
-  border-bottom: solid 1.4142px #ffffff;
-  border-left: solid 1.4142px #ffffff;
+  border-bottom: solid 2.8284px #ffffff;
+  border-left: solid 2.8284px #ffffff;
 }
 
 .hexBottom:after {
@@ -181,25 +214,25 @@ html, body {
 }
 
 .hexagon:after {
-  content:'';
+  content: "";
   position: absolute;
-  top: 0.5774px;
+  top: 1.1547px;
   left: 0;
-  width: 273.0000px;
-  height: 157.6166px;
+  width: 271.0000px;
+  height: 156.4619px;
   z-index: 2;
   background: inherit;
 }
 
 /* hexagon red */
-.hexagonRed {
+/*.hexagonRed {
   position: absolute;
   width: 230px; 
   height: 132.79px;
   background-color: #eaddcc;
   margin: 66.40px 0;
-  border-left: solid 6px #c74629;
-  border-right: solid 6px #c74629;
+  border-left: dashed 6px #c74629;
+  border-right: dashed 6px #c74629;
   z-index:2;
   top:24px;
   left:23px;
@@ -221,12 +254,12 @@ html, body {
 
 .hexagonRed:before {
   top: -81.3173px;
-  border-top: solid 8.4853px #c74629;
-  border-right: solid 8.4853px #c74629;
+  border-top: dashed 8.4853px #c74629;
+  border-right: dashed 8.4853px #c74629;
 }
 
 .hexagonRed:after {
   bottom: -81.3173px;
-  border-bottom: solid 8.4853px #c74629;
-  border-left: solid 8.4853px #c74629;
-}
+  border-bottom: dashed 8.4853px #c74629;
+  border-left: dashed 8.4853px #c74629;
+}*/
