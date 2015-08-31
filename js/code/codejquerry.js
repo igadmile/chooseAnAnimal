@@ -124,10 +124,15 @@ $(document).ready(function(){
         location.reload();
     })
 	
-    // set #points to right position
-	var pointsHeight = $('#points').height();
-	var pointsWidth = $('#points').width();
-	var pointsTop = (318/2)-(pointsHeight/2);
-	var pointsLeft = (285/2)-(pointsWidth/2);
-	$('#points').css({top:pointsTop, left:pointsLeft})
+//     // set #points to right position
+// 	var pointsHeight = $('#points').height();
+// 	var pointsWidth = $('#points').width();
+// 	var pointsTop = (318/2)-(pointsHeight/2);
+// 	var pointsLeft = (285/2)-(pointsWidth/2);
+// 	$('#points').css({top:pointsTop, left:pointsLeft})
+    $( "#points" ).position({
+        my: "center",
+        at: "center",
+        of: "#pointsCenter"
+    });
 });

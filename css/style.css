@@ -8,19 +8,18 @@ body {
 }
 
 html, body {
-	height: 100%;
+    height: 100%;
 }
 
 .vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
 }
 
 .container {
-	vertical-align: middle;
+    vertical-align: middle;
 } 
 
 .row2 {
@@ -33,41 +32,40 @@ html, body {
 }
 
 .modal-content, .btn {
-	border-radius:0px;
+    border-radius:0px;
 }
 
 .btn {
-	background-color:#7cbea2;
-	border:none;
+    background-color:#7cbea2;
+    border:none;
 }
 
 .btn:hover, .btn:active, .btn:focus,.btn-primary:focus, .btn-primary:active, {
-	background-color:#c74629;
+    background-color:#c74629;
 }
 
 .hexImg {
-	/* call fade in keyframes */
+    /* call fade in keyframes */
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s; 
-	
-	/* 	enable bum efect */
-	-webkit-transition:all .3s ease-out;
-	-moz-transition:all .3s ease-out;
-	-ms-transition:all .3s ease-out;
-	-o-transition:all .3s ease-out;
-	transition:all .3s ease-out;
-    cursor: pointer;
-}
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+        -o-animation: fadein 2s; /* Opera < 12.1 */
+        animation: fadein 2s; 
 
-.hexImg:hover {
-	-webkit-transform:translate(0px,10px);
-	-moz-transform:translate(0px,-10px);
-	-ms-transform:translate(0px,-10px);
-	-o-transform:translate(0px,10px);
-	transform:translate(0px,-10px);
+    /* 	enable bum efect */
+    -webkit-transition:all .3s ease-out;
+    -moz-transition:all .3s ease-out;
+    -ms-transition:all .3s ease-out;
+    -o-transition:all .3s ease-out;
+    transition:all .3s ease-out;
+    }
+
+.hexImg:hover, .playIcon:hover {
+    -webkit-transform:translate(0px,10px);
+    -moz-transform:translate(0px,-10px);
+    -ms-transform:translate(0px,-10px);
+    -o-transform:translate(0px,10px);
+    transform:translate(0px,-10px);
 }
 
 /* add fade in keyframes */
@@ -100,9 +98,6 @@ html, body {
     left:35px;
     text-align:center;
     font-size:2.9em;
-/*    -webkit-transform:  rotate(30deg);
-    -ms-transform:      rotate(30deg);
-    transform:          rotate(30deg);*/
     z-index:3;
 }
 
@@ -113,14 +108,36 @@ html, body {
     z-index:3;
 }
 
+#points, .gameTitle {
+    text-shadow: 1px 2px 2px rgba(0,0,0,1);
+}
+
+.restartIcon, .playIcon, .hexImg {
+    cursor: pointer;
+}
+
 .restartIcon {
     position: absolute;
     top: 73px;
     left:62px;
     height: 53%;
     width: 53%;
-    z-index:4;
+    z-index:5;
+        -webkit-transition:all 0.4s ease-out;
+    -moz-transition:all 0.4s ease-out;
+    -ms-transition:all 0.4s ease-out;
+    -o-transition:all 0.4s ease-out;
+    transition:all 0.4s ease-out;
 }
+
+.restartIcon:hover {
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    transform:rotate(360deg);
+    }
+
 
 .playIcon{
     position: absolute;
@@ -129,11 +146,17 @@ html, body {
     height: 53%;
     width: 53%;
     z-index:4;
+    /* 	enable bum efect */
+    -webkit-transition:all .3s ease-out;
+    -moz-transition:all .3s ease-out;
+    -ms-transition:all .3s ease-out;
+    -o-transition:all .3s ease-out;
+    transition:all .3s ease-out;
 }
 
 .hexagonBorder {
     position: absolute;
-     -webkit-transform:  rotate(30deg);
+        -webkit-transform:  rotate(30deg);
     -ms-transform:      rotate(30deg);
     transform:          rotate(30deg);
     top: 6px;
@@ -148,118 +171,78 @@ html, body {
 }
     
 .hexagon {
- position: relative;
-  width: 275px; 
-  height: 158.77px;
-  margin: 79.39px 0;
-  background-color: #81bba3;
-   background-size: auto 312.9238px;
-  background-position: center;
-  box-shadow: 0 0 10px rgba(0,0,0,1);
-  border-left: solid 2px #ffffff;
-  border-right: solid 2px #ffffff;
+    position: relative;
+    width: 275px; 
+    height: 158.77px;
+    margin: 79.39px 0;
+    background-color: #81bba3;
+    background-size: auto 312.9238px;
+    background-position: center;
+    box-shadow: 0 0 10px rgba(0,0,0,1);
+    border-left: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
 }
 
 .hexTop,
 .hexBottom {
-  position: absolute;
-  z-index: 1;
-  width: 194.45px;
-  height: 194.45px;
-  overflow: hidden;
-  -webkit-transform: scaleY(0.5774) rotate(-45deg);
-  -ms-transform: scaleY(0.5774) rotate(-45deg);
-  transform: scaleY(0.5774) rotate(-45deg);
-  background: inherit;
-  left: 38.27px;
-  box-shadow: 0 0 10px rgba(0,0,0,1);
+    position: absolute;
+    z-index: 1;
+    width: 194.45px;
+    height: 194.45px;
+    overflow: hidden;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background: inherit;
+    left: 38.27px;
+    box-shadow: 0 0 10px rgba(0,0,0,1);
 }
 
 /*counter transform the bg image on the caps*/
 .hexTop:after,
 .hexBottom:after {
-  content: "";
-  position: absolute;
-  width: 271.0000px;
-  height: 156.4619229503886px;
-  -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-78.2310px);
-  -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-78.2310px);
-  transform:          rotate(45deg) scaleY(1.7321) translateY(-78.2310px);
-  -webkit-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
-  transform-origin: 0 0;
-  background: inherit;
+    content: "";
+    position: absolute;
+    width: 271.0000px;
+    height: 156.4619229503886px;
+    -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-78.2310px);
+    -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-78.2310px);
+    transform:          rotate(45deg) scaleY(1.7321) translateY(-78.2310px);
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+    background: inherit;
 }
 
 .hexTop {
-  top: -97.2272px;
-  border-top: solid 2.8284px #ffffff;
-  border-right: solid 2.8284px #ffffff;
+    top: -97.2272px;
+    border-top: solid 2.8284px #ffffff;
+    border-right: solid 2.8284px #ffffff;
 }
 
 .hexTop:after {
-	-webkit-backface-visibility: hidden;
-  background-position: center top;
+    -webkit-backface-visibility: hidden;
+    background-position: center top;
 }
 
 .hexBottom {
-  bottom: -97.2272px;
-  border-bottom: solid 2.8284px #ffffff;
-  border-left: solid 2.8284px #ffffff;
+    bottom: -97.2272px;
+    border-bottom: solid 2.8284px #ffffff;
+    border-left: solid 2.8284px #ffffff;
 }
 
 .hexBottom:after {
-	-webkit-backface-visibility: hidden;
-  background-position: center bottom;
+    -webkit-backface-visibility: hidden;
+    background-position: center bottom;
 }
 
 .hexagon:after {
-  content: "";
-  position: absolute;
-  top: 1.1547px;
-  left: 0;
-  width: 271.0000px;
-  height: 156.4619px;
-  z-index: 2;
-  background: inherit;
+    content: "";
+    position: absolute;
+    top: 1.1547px;
+    left: 0;
+    width: 271.0000px;
+    height: 156.4619px;
+    z-index: 2;
+    background: inherit;
 }
-
-/* hexagon red */
-/*.hexagonRed {
-  position: absolute;
-  width: 230px; 
-  height: 132.79px;
-  background-color: #eaddcc;
-  margin: 66.40px 0;
-  border-left: dashed 6px #c74629;
-  border-right: dashed 6px #c74629;
-  z-index:2;
-  top:24px;
-  left:23px;
-}
-
-.hexagonRed:before,
-.hexagonRed:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  width: 162.63px;
-  height: 162.63px;
-  -webkit-transform: scaleY(0.5774) rotate(-45deg);
-  -ms-transform: scaleY(0.5774) rotate(-45deg);
-  transform: scaleY(0.5774) rotate(-45deg);
-  background-color: inherit;
-  left: 27.6827px;
-}
-
-.hexagonRed:before {
-  top: -81.3173px;
-  border-top: dashed 8.4853px #c74629;
-  border-right: dashed 8.4853px #c74629;
-}
-
-.hexagonRed:after {
-  bottom: -81.3173px;
-  border-bottom: dashed 8.4853px #c74629;
-  border-left: dashed 8.4853px #c74629;
-}*/

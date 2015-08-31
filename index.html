@@ -23,7 +23,7 @@
                         <div>POGODI</div>
                         <div>ŽIVOTINJU</div>
                     </div>
-                    <object class="hexagonBorder" type="image/svg+xml" data="image/svg/hexagon2.svg"></object>
+                    <img class="hexagonBorder" src="image/svg/hexagon2.svg">
 <!--                    <div class="hexagonRed"></div>-->
                     <div class="hexagon">
                         <div class="hexTop"></div>
@@ -42,9 +42,9 @@
                 </div>
             </div>
             <div class="row3 row col-xs-12">
-                <div class="col-xs-3">
+                <div id="pointsCenter" class="col-xs-3">
                     <div id="points">0</div>
-                   <object class="hexagonBorder" type="image/svg+xml" data="image/svg/hexagon2.svg"></object>
+                   <img class="hexagonBorder" src="image/svg/hexagon2.svg">
                     <div class="hexagon">
                         <div class="hexTop"></div>
                         <div class="hexBottom"></div>
@@ -52,8 +52,8 @@
                 </div>
                 <div id="replay" class="col-xs-3">
                    <!-- <div class="hexagonRed"></div>-->
-                   <object class="hexagonBorder" type="image/svg+xml" data="image/svg/hexagon2.svg"></object>
-                   <object class="playIcon" type="image/svg+xml" data="image/svg/play2.svg"></object>
+                   <img class="hexagonBorder" src="image/svg/hexagon2.svg">
+                   <img class="playIcon" src="image/svg/play2.svg">
                     <div class="hexagon">
                         <div class="hexTop"></div>
                         <div class="hexBottom"></div>
@@ -62,8 +62,8 @@
                 <div class="col-xs-3">
                 </div>
                 <div class="col-xs-3">
-                   <object class="restartIcon" type="image/svg+xml" data="image/svg/restart2.svg"></object>
-                   <object class="hexagonBorder" type="image/svg+xml" data="image/svg/hexagon2.svg"></object>
+                   <img class="restartIcon" src="image/svg/restart2.svg">
+                   <img class="hexagonBorder" src="image/svg/hexagon2.svg">
                     <!--<div class="hexagonRed"></div>-->
                     <div class="hexagon">
                         <div class="hexTop"></div>
@@ -80,7 +80,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                    <!--<button type="button" class="close" src-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
                     <h4 class="modal-title" id="myModalLabel">Igra je završena!</h4>
                 </div>
                 <div class="modal-body">
@@ -94,6 +94,7 @@
         </div>
 	</div>
         <script src="js/includes/jquery-2.1.4.min.js"></script>
+        <script src="js/includes/jquery-ui.min.js"></script>
         <script src="js/includes/bootstrap.min.js"></script>
 	<script src="js/code/codejquerry.js"></script>
     </body>
