@@ -1,10 +1,22 @@
+@font-face {
+    font-family: Capriola-Regular;
+    src: url(Capriola-Regular.ttf);
+}
+
+@font-face {
+    font-family: bebas;
+    src: url(BebasNeueRegular.ttf);
+}
+
 body {
+	font-family: Capriola-Regular;
     background: url(../image/background/background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     color:#fff;
+	line-height:none;
 }
 
 html, body {
@@ -95,21 +107,22 @@ html, body {
 .gameTitle {
     position:absolute;
     top:90px;
-    left:35px;
+    left:29px;
     text-align:center;
     font-size:2.9em;
     z-index:3;
 }
 
 #points {
+	font-family: bebas;
     z-index:2;
-    font-size:12em;
+    font-size:11em;
     position:absolute;
     z-index:3;
 }
 
 #points, .gameTitle {
-    text-shadow: 1px 2px 2px rgba(0,0,0,1);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
 }
 
 .restartIcon, .playIcon, .hexImg {
@@ -118,10 +131,10 @@ html, body {
 
 .restartIcon {
     position: absolute;
-    top: 73px;
-    left:62px;
-    height: 53%;
-    width: 53%;
+    top: 67px;
+    left:60px;
+    height: 55%;
+    width: 55%;
     z-index:5;
         -webkit-transition:all 0.4s ease-out;
     -moz-transition:all 0.4s ease-out;
@@ -141,10 +154,10 @@ html, body {
 
 .playIcon{
     position: absolute;
-    top: 73px;
-    left:62px;
-    height: 53%;
-    width: 53%;
+    top: 62px;
+    left:53px;
+    height: 60%;
+    width: 60%;
     z-index:4;
     /* 	enable bum efect */
     -webkit-transition:all .3s ease-out;
@@ -160,7 +173,7 @@ html, body {
     -ms-transform:      rotate(30deg);
     transform:          rotate(30deg);
     top: 6px;
-    left:3px;
+    left:1.5px;
     height: 95%;
     width: 95%;
     z-index:4;
@@ -169,7 +182,14 @@ html, body {
 .col-xs-12, .col-xs-3 {
     padding:0px !important;
 }
-    
+
+.hexagonBlue {
+	width:275px;
+	height:317px;
+	
+}
+
+
 .hexagon {
     position: relative;
     width: 275px; 

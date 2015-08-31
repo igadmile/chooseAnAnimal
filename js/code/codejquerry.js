@@ -129,10 +129,11 @@ $(document).ready(function(){
 // 	var pointsWidth = $('#points').width();
 // 	var pointsTop = (318/2)-(pointsHeight/2);
 // 	var pointsLeft = (285/2)-(pointsWidth/2);
-// 	$('#points').css({top:pointsTop, left:pointsLeft})
-    $( "#points" ).position({
-        my: "center",
-        at: "center",
-        of: "#pointsCenter"
-    });
+ 	$('#points').css({top:60, left:112})
+
+//     $( "#points" ).position({
+//         my: "center",
+//         at: "center",
+//         of: "#pointsCenter"
+//     });
 });
