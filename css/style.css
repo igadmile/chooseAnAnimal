@@ -155,9 +155,9 @@ html, body {
 .playIcon{
     position: absolute;
     top: 62px;
-    left:53px;
+    left:42px;
     height: 60%;
-    width: 60%;
+    width: 67%;
     z-index:4;
     /* 	enable bum efect */
     -webkit-transition:all .3s ease-out;
@@ -169,13 +169,10 @@ html, body {
 
 .hexagonBorder {
     position: absolute;
-        -webkit-transform:  rotate(30deg);
-    -ms-transform:      rotate(30deg);
-    transform:          rotate(30deg);
-    top: 6px;
-    left:1.5px;
-    height: 95%;
-    width: 95%;
+    top: 21px;
+    left:16.4px;
+    height: 85%;
+    width: 85%;
     z-index:4;
 }
 
