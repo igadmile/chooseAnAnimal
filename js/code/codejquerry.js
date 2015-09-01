@@ -31,14 +31,14 @@ $(document).ready(function(){
         
         // make a dif and set array for animalsObject count+1
         animalsObject[(count+1)]=animalsMemory.diff(toRemove);
-        console.log(animalsObject);
-        count++
-        return [randomAnimal, animalsMemory]
+//         console.log(animalsObject);
+        count++;
+        return [randomAnimal, animalsMemory];
     };
 
     function drawLoop(selectedAnimal,animals) {
         //  loading images
-        var imagesArray = new Array();
+        var imagesArray = [];
         for (i=0; i<animals.length; i++) {
             var animal = "<div class='hexagon hexImg' style='background-image:url(image/"+animals[i]+".jpg')><div class='hexTop'></div><div class='hexBottom'></div>"
             imagesArray[i]=animal;
@@ -46,7 +46,7 @@ $(document).ready(function(){
         
         //  randomize positions of images
         var placesArray = ["image1","image2", "image3", "image4", "image5", "image6"];
-        var positions = new Array();
+        var positions = [];
         while (positions.length<6) {
             var randomPosition = Math.floor((Math.random() * placesArray.length));
             if (positions.indexOf(randomPosition)<0) {
@@ -55,7 +55,7 @@ $(document).ready(function(){
         };
         
         //  make array with random position of image indexes
-        var randomNumberArray = new Array();
+        var randomNumberArray = [];
         randomNumberArray.push(selectedAnimal);
         while (randomNumberArray.length<6){
             var randomNumber = Math.floor((Math.random() * imagesArray.length));
@@ -82,7 +82,7 @@ $(document).ready(function(){
         turn++
         $('.hexImg').click(function(){
             var broj=$(this).parent().attr('title');
-            console.log('kliknuto '+broj+'selected '+selectedAnimal)
+//             console.log('kliknuto '+broj+'selected '+selectedAnimal)
             if (broj==selectedAnimal) {
                 points++;
                 $('#points').text(points);
