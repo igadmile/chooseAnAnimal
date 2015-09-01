@@ -21,7 +21,7 @@ $(document).ready(function(){
         animalsObject[0]=animalsInside;
         
         // get random number 
-        var randomAnimal = Math.floor((Math.random() * animalsObject[count].length));
+        var randomAnimal = Math.floor(Math.random() * animalsObject[count].length);
         
         // store value of animalsObject for Making diff and returning
         var animalsMemory = animalsObject[count];
@@ -34,15 +34,15 @@ $(document).ready(function(){
 //         console.log(animalsObject);
         count++;
         return [randomAnimal, animalsMemory];
-    };
+    }
 
     function drawLoop(selectedAnimal,animals) {
         //  loading images
         var imagesArray = [];
-        for (i=0; i<animals.length; i++) {
-            var animal = "<div class='hexagon hexImg' style='background-image:url(image/"+animals[i]+".jpg')><div class='hexTop'></div><div class='hexBottom'></div>"
+        for (var i=0; i<animals.length; i++) {
+            var animal = ["<div class='hexagon hexImg' style='background-image:url(image/",animals[i],".jpg')><div class='hexTop'></div><div class='hexBottom'></div>"].join("");
             imagesArray[i]=animal;
-        };
+        }
         
         //  randomize positions of images
         var placesArray = ["image1","image2", "image3", "image4", "image5", "image6"];
@@ -51,8 +51,8 @@ $(document).ready(function(){
             var randomPosition = Math.floor((Math.random() * placesArray.length));
             if (positions.indexOf(randomPosition)<0) {
                 positions.push(randomPosition);
-            };
-        };
+            }
+        }
         
         //  make array with random position of image indexes
         var randomNumberArray = [];
@@ -61,25 +61,25 @@ $(document).ready(function(){
             var randomNumber = Math.floor((Math.random() * imagesArray.length));
             if (randomNumberArray.indexOf(randomNumber)<0 && randomNumberArray.indexOf(randomNumber)!=selectedAnimal) {
                 randomNumberArray.push(randomNumber);
-            };
-        };
+            }
+        }
         
         // load audio
-        var animalAudio = "<audio src='audio/"+animals[selectedAnimal]+".mp3' autoplay></audio>";
+        var animalAudio = ["<audio src='audio/",animals[selectedAnimal],".mp3' autoplay></audio>"].join("");
         $('#audio').append(animalAudio);
         
         $('.playIcon').click(function() {
             $( '#audio').children().replaceWith(animalAudio);
         });
         
-        for (i=0; i<6; i++) {
-            imageNum=placesArray[positions[i]];
-            $('#'+imageNum).append(imagesArray[randomNumberArray[i]]).attr('title',randomNumberArray[i]);
-        };
+        for (var x=0; x<6; x++) {
+            var imageNum=placesArray[positions[x]];
+            $('#'+imageNum).append(imagesArray[randomNumberArray[x]]).attr('title',randomNumberArray[x]);
+        }
 
         // detect click and see if clicked image title corresponds with selectedAnimal
         // if so add points, else substract
-        turn++
+        turn++;
         $('.hexImg').click(function(){
             var broj=$(this).parent().attr('title');
 //             console.log('kliknuto '+broj+'selected '+selectedAnimal)
@@ -87,11 +87,11 @@ $(document).ready(function(){
                 points++;
                 $('#points').text(points);
                 startLoop();
-            };
+            }
             if (broj!=selectedAnimal) {
                 points--;
                 $('#points').text(points);
-            };
+            }
         });
     }
     
@@ -108,28 +108,28 @@ $(document).ready(function(){
         
         // if points reach certain value, show modal and hide content on page
         if(turn==10){
-            $('.modal-body').text('Broj bodova je: '+ points);
+            $('.modal-body').text(['Broj bodova je: ', points].join(''));
             $('#modalDialogue').modal('show');
             $('.col-xs-12').remove();
         }
         else {
             selectedAnimal = selectAnimal();
             drawLoop(selectedAnimal[0],selectedAnimal[1]);
-            return selectedAnimal[0]
+            return selectedAnimal[0];
         }
     }
     
     // reset if button reset clicked
     $('.restartIcon').click(function(){
         location.reload();
-    })
+    });
 	
 //     // set #points to right position
 // 	var pointsHeight = $('#points').height();
 // 	var pointsWidth = $('#points').width();
 // 	var pointsTop = (318/2)-(pointsHeight/2);
 // 	var pointsLeft = (285/2)-(pointsWidth/2);
- 	$('#points').css({top:60, left:112})
+//  	$('#points').css({top:60, left:112});
 
 //     $( "#points" ).position({
 //         my: "center",

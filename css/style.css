@@ -9,14 +9,13 @@
 }
 
 body {
-	font-family: Capriola-Regular;
+    font-family: Capriola-Regular;
     background: url(../image/background/background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     color:#fff;
-	line-height:none;
 }
 
 html, body {
@@ -44,7 +43,7 @@ html, body {
 }
 
 .modal-content, .btn {
-    border-radius:0px;
+    border-radius:0;
 }
 
 .btn {
@@ -52,7 +51,7 @@ html, body {
     border:none;
 }
 
-.btn:hover, .btn:active, .btn:focus,.btn-primary:focus, .btn-primary:active, {
+.btn:hover, .btn:active, .btn:focus,.btn-primary:focus, .btn-primary:active {
     background-color:#c74629;
 }
 
@@ -61,8 +60,8 @@ html, body {
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 2s; /* Firefox < 16 */
     -ms-animation: fadein 2s; /* Internet Explorer */
-        -o-animation: fadein 2s; /* Opera < 12.1 */
-        animation: fadein 2s; 
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s; 
 
     /* 	enable bum efect */
     -webkit-transition:all .3s ease-out;
@@ -105,20 +104,17 @@ html, body {
 }
 
 .gameTitle {
-    position:absolute;
     top:90px;
     left:29px;
     text-align:center;
     font-size:2.9em;
-    z-index:3;
 }
 
 #points {
-	font-family: bebas;
-    z-index:2;
+    font-family: bebas;
+    top:60px;
+    left:112px;
     font-size:11em;
-    position:absolute;
-    z-index:3;
 }
 
 #points, .gameTitle {
@@ -130,13 +126,11 @@ html, body {
 }
 
 .restartIcon {
-    position: absolute;
     top: 67px;
     left:60px;
     height: 174.35px;
     width: 	156.75px;
-    z-index:5;
-        -webkit-transition:all 0.4s ease-out;
+    -webkit-transition:all 0.4s ease-out;
     -moz-transition:all 0.4s ease-out;
     -ms-transition:all 0.4s ease-out;
     -o-transition:all 0.4s ease-out;
@@ -150,15 +144,16 @@ html, body {
     -o-transform:rotate(360deg);
     transform:rotate(360deg);
     }
-
+.playIcon, .restartIcon, #points, .gameTitle {
+    z-index:5;
+    position:absolute;
+}
 
 .playIcon{
-    position: absolute;
     top: 62px;
     left:42px;
     height: 191px;
     width: 191px;
-    z-index:4;
     /* 	enable bum efect */
     -webkit-transition:all .3s ease-out;
     -moz-transition:all .3s ease-out;
@@ -167,25 +162,23 @@ html, body {
     transition:all .3s ease-out;
 }
 
-.hexagonBorder {
+/*.hexagonBorder {
     position: absolute;
     top: 21px;
     left:16.4px;
     height: 269px;
     width: 242px;
     z-index:4;
-}
+}*/
 
 .col-xs-12, .col-xs-3 {
     padding:0px !important;
 }
 
 .hexagonBlue {
-	width:275px;
-	height:317px;
-	
+    width:275px;
+    height:317px;	
 }
-
 
 .hexagon {
     position: relative;
