@@ -42,6 +42,14 @@ html, body {
     margin-top:-70px;
 }
 
+#playerPoints {
+	 display: none;
+}
+
+.modal-content {
+    color:black;
+}
+
 .modal-content, .btn {
     border-radius:0;
 }

@@ -108,8 +108,9 @@ $(document).ready(function(){
         
         // if points reach certain value, show modal and hide content on page
         if(turn==10){
-            $('.modal-body').text(['Broj bodova je: ', points].join(''));
+//             $('.modal-body').text(['Broj bodova je: ', points].join(''));
             $('#modalDialogue').modal('show');
+            $('#playerPoints').val(points);
             $('.col-xs-12').remove();
         }
         else {
@@ -123,6 +124,43 @@ $(document).ready(function(){
     $('.restartIcon').click(function(){
         location.reload();
     });
+    
+    $('#saveHigh').click(function(){
+       var data = $('#highForm :input').serializeArray();
+       $.post($('#highForm').attr("action"), data, function(info){ 
+           $('#phpAppend').html(info);
+    });
+       clearInput()
+	   
+	   // add querry.php output
+	   $.get("../../php/querry.php", null, function(data){
+            // this is called, when response from SERVER is received
+            $("#highTable").append(data);
+
+        });
+// 	   var include = '<div><?php include("php/querry.php") ?></div>';
+//        $('#highTable').append(include);
+// 	   
+    });
+    
+    $('#highForm').submit(function() {
+        return false;
+        
+    });
+    
+    function clearInput() {
+        $('#highForm :input').each(function() {
+            $(this).val('');
+        });
+    }
+    
+    $('#saveHigh').attr('disabled',true);
+    $('#playerName').keyup(function(){
+        if($(this).val().length !=0)
+            $('#saveHigh').attr('disabled', false);            
+        else
+            $('#saveHigh').attr('disabled',true);
+    })
 	
 //     // set #points to right position
 // 	var pointsHeight = $('#points').height();

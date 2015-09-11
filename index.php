@@ -80,6 +80,19 @@
                     <h4 class="modal-title" id="myModalLabel">Igra je završena!</h4>
                 </div>
                 <div class="modal-body">
+                    <form method="post" action="php/highscore.php" id="highForm">
+                        <div class="form-group">
+                            <!--<label for="exampleInputEmail1">Upiši ime</label>-->
+                            <input type="text" class="form-control" id="playerName" name="name" placeholder="Upiši ime">
+                            <input type="text" class="form-control" id="playerPoints" name="points">
+                        </div>
+                        <div class="form-group">
+							<button type="submit" class="btn btn-default" id="saveHigh">Spremi</button>
+						 </div>
+                    </form>
+                    <span id="phpAppend"></span>
+                    <div id="highTable">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button id="modalButton" type="button" class="btn btn-primary">Ponovno pokreni igru</button>
