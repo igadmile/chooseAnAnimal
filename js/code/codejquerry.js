@@ -10,7 +10,9 @@ $(document).ready(function(){
     drawLoop(selectedAnimal[0],selectedAnimal[1]);
     
     function selectAnimal () {
-        var animalsInside=["lion", "finch", "bullfinch", "heron", "sparrow", "cat", "chimp", "woodpecker", "dog", "cow", "goat", "sheep", "wolf", "bear", "duck", "goose", "fox", "chicken", "blackbird", "tit", "roedeer", "stork", "crow", "jay"];
+        var animalsInside=["lion", "finch", "bullfinch", "heron", "sparrow", "cat", "chimp", "woodpecker", "dog", "cow", "goat", "sheep", "wolf", "bear", "duck", "goose", "fox", "chicken", "blackbird", "tit", "roedeer", "stork", "crow", "jay",
+			"pheasant"
+		];
         
         // function for making difference between two arrays. Removes duplicate values
         Array.prototype.diff = function(a) {
