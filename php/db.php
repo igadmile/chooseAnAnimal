@@ -1,4 +1,4 @@
 <?php
-	  $conn = mysql_connect('localhost', '', '');
+	  $conn = mysql_connect('localhost', 'root', 'igadmile');
 	  $db   = mysql_select_db('choose_highscore');
 ?>

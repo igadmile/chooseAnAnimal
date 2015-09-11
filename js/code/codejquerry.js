@@ -10,8 +10,7 @@ $(document).ready(function(){
     drawLoop(selectedAnimal[0],selectedAnimal[1]);
     
     function selectAnimal () {
-        var animalsInside=["lion", "finch", "bullfinch", "heron", "sparrow", "cat", "chimp", "woodpecker", "dog", "cow", "goat", "sheep", "wolf", "bear", "duck", "goose", "fox", "chicken", "blackbird", "tit", "roedeer", "stork", "crow", "jay",
-			"pheasant"
+        var animalsInside=["lion", "finch", "bullfinch", "heron", "sparrow", "cat", "chimp", "woodpecker", "dog", "cow", "goat", "sheep", "wolf", "bear", "duck", "goose", "fox", "chicken", "blackbird", "tit", "roedeer", "stork", "crow", "jay","pheasant", "badger","hyla","bufo", "frog", "cicada"
 		];
         
         // function for making difference between two arrays. Removes duplicate values
@@ -33,7 +32,7 @@ $(document).ready(function(){
         
         // make a dif and set array for animalsObject count+1
         animalsObject[(count+1)]=animalsMemory.diff(toRemove);
-//         console.log(animalsObject);
+		
         count++;
         return [randomAnimal, animalsMemory];
     }
@@ -78,13 +77,15 @@ $(document).ready(function(){
             var imageNum=placesArray[positions[x]];
             $('#'+imageNum).append(imagesArray[randomNumberArray[x]]).attr('title',randomNumberArray[x]);
         }
+        
+        // add style to help so it can select selected animal
+        $('#help').attr("style",selectedAnimal)
 
         // detect click and see if clicked image title corresponds with selectedAnimal
         // if so add points, else substract
         turn++;
         $('.hexImg').click(function(){
             var broj=$(this).parent().attr('title');
-//             console.log('kliknuto '+broj+'selected '+selectedAnimal)
             if (broj==selectedAnimal) {
                 points++;
                 $('#points').text(points);
@@ -95,8 +96,28 @@ $(document).ready(function(){
                 $('#points').text(points);
             }
         });
+		console.log(turn)
     }
     
+    // when clicked on help hexagon substract 2 from points and animate selected animal
+    var clicked = false;
+	$('#help').click(function(){
+		if (clicked==false) {
+			clicked = true;
+			points=points-2;
+			$('#points').text(points);
+			var helpSelect = $('#help').attr('style');
+			$("div[title='"+helpSelect+"']").addClass('help');
+		
+			setTimeout(function() {
+			$("div[title='"+helpSelect+"']").removeClass('help');
+			startLoop();
+			clicked=false;
+			},
+			2500);
+		}
+	});
+		
     // delete images and audio and start loop again
     function startLoop(){
         $('.hexImg').remove();
@@ -109,8 +130,8 @@ $(document).ready(function(){
         });
         
         // if points reach certain value, show modal and hide content on page
-        if(turn==10){
-//             $('.modal-body').text(['Broj bodova je: ', points].join(''));
+        if(turn==2){
+			$('.modal-body').prepend(['<div style="margin-bottom:15px">Broj bodova je: ', points, '</div>'].join(''));
             $('#modalDialogue').modal('show');
             $('#playerPoints').val(points);
             $('.col-xs-12').remove();
@@ -136,13 +157,9 @@ $(document).ready(function(){
 	   
 	   // add querry.php output
 	   $.get("../../php/querry.php", null, function(data){
-            // this is called, when response from SERVER is received
             $("#highTable").append(data);
 
-        });
-// 	   var include = '<div><?php include("php/querry.php") ?></div>';
-//        $('#highTable').append(include);
-// 	   
+        });  
     });
     
     $('#highForm').submit(function() {

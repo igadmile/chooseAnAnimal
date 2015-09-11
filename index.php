@@ -1,7 +1,7 @@
  <!DOCTYPE html>
 <html>
     <head>
-    <title>Page Title</title>
+    <title>Pogodi životinju</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -23,12 +23,7 @@
                         <div>POGODI</div>
                         <div>ŽIVOTINJU</div>
                     </div>
-                  <!--  <img class="hexagonBorder" src="image/svg/hexagon.png">-->
                     <img  class="hexagonBlue2" src="image/svg/hexagonBlue2.png">
-                    <!--<div class="hexagon">
-                        <div class="hexTop"></div>
-                        <div class="hexBottom"></div>
-                    </div> -->
                 </div>
             </div>
             <div class="row2 row col-xs-12">
@@ -42,29 +37,21 @@
             <div class="row3 row col-xs-12">
                 <div id="pointsCenter" class="col-xs-3">
                     <div id="points">0</div>
-                   <!--<img class="hexagonBorder" src="image/svg/hexagon.png">-->
                    <img  class="hexagonBlue2" src="image/svg/hexagonBlue2.png"> 
                 </div>
                 <div id="replay" class="col-xs-3">
-                   <!--<img class="hexagonBorder" src="image/svg/hexagon.png">-->
                    <img class="playIcon" src="image/svg/play.png">
                    <img  class="hexagonBlue2" src="image/svg/hexagonBlue2.png">
-                    <!--<div class="hexagon">
-                        <div class="hexTop"></div>
-                        <div class="hexBottom"></div>
-                    </div>--> 
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-3" id="help">
+					<div class="helpTitle">
+                        <div>POMOĆ!</div>
+                    </div>
+					<img  class="hexagonBlue2" src="image/svg/hexagonBlue2.png">
                 </div>
                 <div class="col-xs-3">
                    <img class="restartIcon" src="image/svg/restart.png">
-                   <!--<img class="hexagonBorder" src="image/svg/hexagon.png">-->
                    <img  class="hexagonBlue2" src="image/svg/hexagonBlue2.png">
-
-                    <!--<div class="hexagon">
-                        <div class="hexTop"></div>
-                        <div class="hexBottom"></div>
-                    </div> -->
                 </div>
             </div>
             <div class="row">
@@ -72,17 +59,15 @@
                 </div>
             </div>
             <!-- Modal -->
-            <div class="modal fade" id="modalDialogue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal fade" id="modalDialogue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <!--<button type="button" class="close" src-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
                     <h4 class="modal-title" id="myModalLabel">Igra je završena!</h4>
                 </div>
                 <div class="modal-body">
                     <form method="post" action="php/highscore.php" id="highForm">
                         <div class="form-group">
-                            <!--<label for="exampleInputEmail1">Upiši ime</label>-->
                             <input type="text" class="form-control" id="playerName" name="name" placeholder="Upiši ime">
                             <input type="text" class="form-control" id="playerPoints" name="points">
                         </div>

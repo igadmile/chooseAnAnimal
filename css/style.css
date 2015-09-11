@@ -70,22 +70,29 @@ html, body {
     -ms-animation: fadein 2s; /* Internet Explorer */
     -o-animation: fadein 2s; /* Opera < 12.1 */
     animation: fadein 2s; 
+}
 
-    /* 	enable bum efect */
-    -webkit-transition:all .3s ease-out;
-    -moz-transition:all .3s ease-out;
-    -ms-transition:all .3s ease-out;
-    -o-transition:all .3s ease-out;
-    transition:all .3s ease-out;
-    }
-
-.hexImg:hover, .playIcon:hover {
+.hexImg:hover, .playIcon:hover, .helpTitle:hover {
     -webkit-transform:translate(0px,10px);
     -moz-transform:translate(0px,-10px);
     -ms-transform:translate(0px,-10px);
     -o-transform:translate(0px,10px);
     transform:translate(0px,-10px);
 }
+
+.help {
+    -webkit-transition:all 0.4s ease-out;
+    -moz-transition:all 0.4s ease-out;
+    -ms-transition:all 0.4s ease-out;
+    -o-transition:all 0.4s ease-out;
+    transition:all 0.4s ease-out;
+	
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    transform:rotate(360deg);
+};
 
 /* add fade in keyframes */
 @keyframes fadein {
@@ -113,23 +120,27 @@ html, body {
 
 .gameTitle {
     top:90px;
-    left:29px;
-    text-align:center;
     font-size:2.9em;
+}
+
+.helpTitle {
+    top:110px;
+    font-size:3.9em;
 }
 
 #points {
     font-family: bebas;
     top:60px;
-    left:112px;
     font-size:11em;
 }
 
-#points, .gameTitle {
+#points, .gameTitle, .helpTitle {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
+	width:285px;
+	text-align:center;
 }
 
-.restartIcon, .playIcon, .hexImg {
+.restartIcon, .playIcon, .hexImg, .helpTitle {
     cursor: pointer;
 }
 
@@ -152,7 +163,8 @@ html, body {
     -o-transform:rotate(360deg);
     transform:rotate(360deg);
     }
-.playIcon, .restartIcon, #points, .gameTitle {
+    
+.playIcon, .restartIcon, #points, .gameTitle, .helpTitle {
     z-index:5;
     position:absolute;
 }
@@ -162,22 +174,17 @@ html, body {
     left:42px;
     height: 191px;
     width: 191px;
-    /* 	enable bum efect */
+}
+
+.playIcon, .helpTitle, .hexImg {
+	/* 	enable bum efect */
     -webkit-transition:all .3s ease-out;
     -moz-transition:all .3s ease-out;
     -ms-transition:all .3s ease-out;
     -o-transition:all .3s ease-out;
     transition:all .3s ease-out;
 }
-
-/*.hexagonBorder {
-    position: absolute;
-    top: 21px;
-    left:16.4px;
-    height: 269px;
-    width: 242px;
-    z-index:4;
-}*/
+	
 
 .col-xs-12, .col-xs-3 {
     padding:0px !important;
