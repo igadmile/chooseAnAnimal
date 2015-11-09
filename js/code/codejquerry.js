@@ -103,18 +103,18 @@ $(document).ready(function(){
     var clicked = false;
 	$('#help').click(function(){
 		if (clicked==false) {
-			clicked = true;
-			points=points-2;
-			$('#points').text(points);
-			var helpSelect = $('#help').attr('style');
-			$("div[title='"+helpSelect+"']").addClass('help');
-		
-			setTimeout(function() {
-			$("div[title='"+helpSelect+"']").removeClass('help');
-			startLoop();
-			clicked=false;
-			},
-			2500);
+                    clicked = true;
+                    points=points-2;
+                    $('#points').text(points);
+                    var helpSelect = $('#help').attr('style');
+                    $("div[title='"+helpSelect+"']").addClass('help');
+            
+                    setTimeout(function() {
+                    $("div[title='"+helpSelect+"']").removeClass('help');
+                    startLoop();
+                    clicked=false;
+                    },
+                    2500);
 		}
 	});
 		
@@ -131,7 +131,7 @@ $(document).ready(function(){
         
         // if points reach certain value, show modal and hide content on page
         if(turn==2){
-			$('.modal-body').prepend(['<div style="margin-bottom:15px">Broj bodova je: ', points, '</div>'].join(''));
+            $('.modal-body').prepend(['<div style="margin-bottom:15px">Broj bodova je: ', points, '</div>'].join(''));
             $('#modalDialogue').modal('show');
             $('#playerPoints').val(points);
             $('.col-xs-12').remove();
@@ -155,11 +155,10 @@ $(document).ready(function(){
     });
        clearInput()
 	   
-	   // add querry.php output
-	   $.get("../../php/querry.php", null, function(data){
-            $("#highTable").append(data);
-
-        });  
+	   // add querry.php output and set 100ms timeout to prevent race conditions
+       setTimeout(function() {$.get("../../php/querry.php", null, function(data){
+           $("#highTable").append(data);
+           })}, 100);
     });
     
     $('#highForm').submit(function() {
